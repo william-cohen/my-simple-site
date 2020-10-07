@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+
+  build:
+    commands:
+      - aws s3 rm --recursive s3://${DEPLOY_BUCKET}
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: public/
